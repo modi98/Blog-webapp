@@ -6,10 +6,7 @@ export class Post {
   description: string;
   publishedAt: string;
   image: string;
-  comments: [{
-    author: string,
-    comment: string
-  }];
+  comments: any;
 
   constructor(id: number, title: string, category: string, shortDescription: string, description: string, publishedAt: string, image: string, comments: any) {
     this.id = id;
