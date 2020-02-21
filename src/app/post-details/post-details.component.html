@@ -1,0 +1,25 @@
+<!-- Single post details -->
+<div class="post-banner" [ngStyle]="{'background-image': 'url(' + post.image + ')' }">
+  <a routerLink="/">
+    <button class="return-button" mat-stroked-button>< View posts</button>
+  </a>
+  <h2 class="post_title">{{ post.title }}</h2>
+</div>
+
+<div class="post-body">
+  <p class="post-body-content">
+    {{ post.description }}
+  </p>
+</div>
+
+<div class="post-comments">
+  <h4 class="comments-title">Comments</h4>
+  <app-comment *ngFor="let comment of post.comments" [commentObject]="comment"></app-comment>
+  <form>
+    <mat-form-field class="comment-input">
+      <mat-label>Write a comment</mat-label>
+      <input matInput name="newComment" [(ngModel)]="newComment">
+    </mat-form-field><br>
+    <button mat-flat-button color="primary" [disabled]="newComment === ''" (click)="addComment()">Add</button>
+  </form>
+</div>

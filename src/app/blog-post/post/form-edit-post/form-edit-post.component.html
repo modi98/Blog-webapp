@@ -1,0 +1,22 @@
+<!-- Popup modal -->
+<div id="editModal" class="modal">
+  <div align="center" class="modal-content">
+    <span class="close" id="closeEdit">&times;</span>
+    <h3>Edit post</h3>
+
+    <!-- Update post form -->
+    <form>
+      <input name="title" [(ngModel)]="editingPost.title" type="text" placeholder="Title"><br><br>
+      <input name="description" [(ngModel)]="editingPost.description" type="text" placeholder="Description"><br><br>
+      <select name="category" [(ngModel)]="editingPost.category" type="text" placeholder="Category">
+        <option value="travel">Travel</option>
+        <option value="lifestyle">Lifestyle</option>
+        <option value="business">Business</option>
+        <option value="food">Food</option>
+        <option value="work">Work</option>
+      </select><br><br>
+      <input name="imgUrl" [(ngModel)]="editingPost.image" type="text" placeholder="URL of the image"><br><br>
+      <button type="submit" (click)="updatePost()">Save</button>
+    </form>
+  </div>
+</div>

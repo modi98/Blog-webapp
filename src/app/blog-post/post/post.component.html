@@ -1,0 +1,18 @@
+<!-- Post card -->
+
+<div class="image-bg post-content" [ngStyle]="{'background-image': 'url(' + post.image + ')' }">
+  <a class="link" [routerLink]="'/postDetails/' + post.id">
+    <h3 class="post-title">{{ post.title }}</h3>
+    <p class="post-comments">{{ post.comments.length }} Comments <i class="far fa-comments"></i></p>
+    <p class="post-description">{{ post.description }}</p>
+  </a>
+  <span>
+    <span class="post-category">
+      {{ post.category }}
+    </span>
+    <i (click)="toggleEditPost()" class="post-options far fa-edit"></i>
+    <i (click)="deletePost()" class="post-options far fa-trash-alt"></i>
+  </span>
+</div>
+
+<app-form-edit-post *ngIf="editingPost" (close)="toggleEditPost()" [postObject]="post"></app-form-edit-post>

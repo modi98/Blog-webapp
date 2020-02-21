@@ -1,0 +1,33 @@
+.page-title {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    text-align: center;
+}
+
+.title-button {
+    text-decoration: none;
+}
+
+.title-button:hover {
+    text-decoration: underline;
+}
+
+.title {
+    margin: 0;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.title-helper {
+    display: inline-block;
+    position: relative;
+    padding: 8px 16px;
+    font-size: 18px;
+    color: coral;
+    text-align: center;
+    border: 2px solid coral;
+}
+
+.title-helper::after, .title-helper::before {
+    box-sizing: border-box;
+}

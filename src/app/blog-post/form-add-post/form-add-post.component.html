@@ -1,0 +1,28 @@
+<!-- Floating button -->
+<button class="editorButton" (click)="showModal()" mat-fab>
+  <i class="fas fa-pen"></i>
+</button>
+
+<!-- Popup modal -->
+<div id="myModal" class="modal">
+  <div align="center" class="modal-content">
+    <span class="close" id="close">&times;</span>
+    <h3>Create post</h3>
+
+    <!-- New post form -->
+    <form [formGroup]="postForm">
+      <input formControlName="title" type="text" placeholder="Title"><br><br>
+      <input formControlName="description" type="text" placeholder="Description"><br><br>
+      <select formControlName="category" type="text" placeholder="Category">
+        <option value="travel">Travel</option>
+        <option value="lifestyle">Lifestyle</option>
+        <option value="business">Business</option>
+        <option value="food">Food</option>
+        <option value="work">Work</option>
+      </select><br><br>
+      <input formControlName="imgUrl" type="text" placeholder="URL of the image"><br><br>
+      <button type="submit" [disabled]="!postForm.valid" (click)="savePost()">Save</button>
+    </form>
+  </div>
+</div>
+

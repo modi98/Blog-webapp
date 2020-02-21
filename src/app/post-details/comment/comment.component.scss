@@ -1,0 +1,23 @@
+.comment-item {
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.09);
+}
+
+.comment-content {
+  margin-left: 10px;
+}
+
+.comment-author {
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.comment {
+  font-size: 2rem;
+}

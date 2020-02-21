@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    font-size: 10px; // Base font-size
+}
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.6rem; // 1 rem = 10pxdue to html font-size
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
