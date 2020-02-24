@@ -1,57 +1,57 @@
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .image-bg {
-    color: white;
-    padding: 30px;
-    background-size: 100%;
-    height: 300px;
+  color: white;
+  padding: 30px;
+  background-size: 100%;
+  height: 300px;
 }
 
 .post-options { display: none }
 
 .image-bg:hover {
-    cursor: hand;
-    cursor: pointer;
-    .post-options {
-        display: inline-block;
-        margin-left: 20px;
-    }
+  cursor: hand;
+  cursor: pointer;
+  .post-options {
+    display: inline-block;
+    margin-left: 20px;
+  }
 }
 
 .post-content {
-    bottom: 0;
-    padding: 30px;
-    width: 100%;
+  bottom: 0;
+  padding: 30px;
+  width: 100%;
 }
 
 .post-title {
-    position: relative;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: 42px;
-    margin-bottom: 20px;
+  position: relative;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 42px;
+  margin-bottom: 20px;
 }
 
 .post-comments {
-    font-style: italic;
-    font-size: 1.6rem;
-    padding-bottom: 10px;
-    padding-right: 10px;
+  font-style: italic;
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }
 
 .post-description {
-    line-height: 22px;
-    width: 75%;
-    padding-bottom: 20px;
+  line-height: 22px;
+  width: 75%;
+  padding-bottom: 20px;
 }
 
 .post-category {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
-    font-size: 1.25rem;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    text-transform: uppercase;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
