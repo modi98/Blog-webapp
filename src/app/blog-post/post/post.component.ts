@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Post } from 'src/app//models/post.model';
-import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-post',
@@ -10,19 +9,16 @@ import { ApiService } from 'src/app/services/api.service';
 export class PostComponent implements OnInit {
 
   @Input() postObject: Post;
-  @Output() deleted = new EventEmitter<boolean>()
+  @Output() deleted = new EventEmitter<Post>()
+  @Output() undo = new EventEmitter<Post>()
   post: Post;
   public editingPost = false;
 
-  constructor(private _api: ApiService) {
+  constructor() {
   }
 
   ngOnInit(): void {
     this.post = this.postObject;
-  }
-
-  goToPost() {
-    console.log(this.post.id);
   }
 
   toggleEditPost() {
@@ -30,7 +26,6 @@ export class PostComponent implements OnInit {
   }
 
   deletePost() {
-    this._api.deletePost(this.post);
-    this.deleted.emit(true);
+    this.deleted.emit(this.post);
   }
 }

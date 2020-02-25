@@ -10,6 +10,6 @@
     *ngFor="let post of (posts | category: categoryToFilter)"
     class="w3-col s12 m6 post"
     [postObject]="post"
-    (deleted)="reloadPosts()"
+    (deleted)="deletePost($event)"
   ></app-post>
 </div>

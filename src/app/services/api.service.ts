@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model'
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -44,12 +44,26 @@ export class ApiService {
       [{ author: 'Modi', comment: 'Muy buena experiencia' }, { author: 'Carlos', comment: 'Se los recomiendo'}])
   ]; // Simulates API response
 
+  public bs = new BehaviorSubject(this.postsDB);
+  public ob = this.bs.asObservable();
+
+  addPost(post: Post) {
+    this.postsDB = [...this.postsDB, post];
+    this.bs.next(this.postsDB);
+  }
+
+  updateAllPosts(posts) {
+    this.postsDB = posts;
+    this.bs.next(posts);
+  }
+
   updatePost(updatedPost) {
     this.postsDB.forEach(post => {
       if (post.id === updatedPost.id) {
         Object.assign(post, updatedPost);
       }
     })
+    this.bs.next(this.postsDB);
   }
 
   getPost(id) {
@@ -63,11 +77,10 @@ export class ApiService {
   }
 
   deletePost(post) {
-    let cache = [...this.postsDB];
-    let index = cache.indexOf(post);
+    let index = this.postsDB.indexOf(post);
     if (index > -1) {
-      cache.splice(index, 1);
+      this.postsDB.splice(index, 1);
     }
-    this.postsDB = [...cache];
+    this.bs.next(this.postsDB);
   }
 }
