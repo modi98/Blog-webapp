@@ -3,17 +3,29 @@
 }
 
 .image-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   color: white;
   padding: 30px;
   background-size: 100%;
-  height: 300px;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
 }
 
 .post-options { display: none }
 
-.image-bg:hover {
+.post-content:hover {
   cursor: hand;
   cursor: pointer;
+  .image-bg {
+    opacity: 0.5;
+  }
   .post-options {
     display: inline-block;
     margin-left: 20px;
@@ -21,6 +33,10 @@
 }
 
 .post-content {
+  background-color: black;
+  position: relative;
+  z-index: 0;
+  color: white;
   bottom: 0;
   padding: 30px;
   width: 100%;

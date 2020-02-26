@@ -5,7 +5,7 @@
 <app-form-add-post (newPostCreated)="storeNewPost($event)"></app-form-add-post>
 
 <!-- Cards show on rows here -->
-<div class="w3-row">
+<div class="w3-row content">
   <app-post
     *ngFor="let post of (posts | category: categoryToFilter)"
     class="w3-col s12 m6 post"

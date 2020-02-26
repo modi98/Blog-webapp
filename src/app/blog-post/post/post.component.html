@@ -1,6 +1,7 @@
 <!-- Post card -->
 
-<div class="image-bg post-content" [ngStyle]="{'background-image': 'url(' + post.image + ')' }">
+<div class="post-content">
+  <div class="image-bg" [ngStyle]="{'background-image': 'url(' + post.image + ')' }"></div>
   <a class="link" [routerLink]="'/postDetails/' + post.id">
     <h3 class="post-title">{{ post.title }}</h3>
     <p class="post-comments">{{ post.comments.length }} Comments <i class="far fa-comments"></i></p>
