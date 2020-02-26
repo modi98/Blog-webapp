@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Post } from 'src/app/models/post.model';
-import { ApiService } from 'src/app/services/api.service';
+import { Post } from 'src/app/interfaces/post';
 
 @Component({
   selector: 'app-form-edit-post',
@@ -11,9 +10,10 @@ export class FormEditPostComponent implements OnInit {
 
   @Input() public postObject;
   @Output() close = new EventEmitter<boolean>();
-  public editingPost = new Post(0, 'Hey', '', '', '', '', '', []);
+  @Output() update = new EventEmitter<Post>();
+  public editingPost;
 
-  constructor(private _api: ApiService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.editingPost = Object.assign({}, this.postObject);
@@ -33,9 +33,8 @@ export class FormEditPostComponent implements OnInit {
   }
 
   updatePost() {
-    this._api.updatePost(this.editingPost);
-    let modal = document.getElementById('editModal');
-    modal.style.display = 'none';
+    this.update.emit(this.editingPost);
+    this.closeEditModal();
   }
 
   closeEditModal() {

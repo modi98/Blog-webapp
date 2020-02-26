@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-import { Post } from 'src/app//models/post.model';
+import { Post } from 'src/app/interfaces/post';
 
 @Component({
   selector: 'app-post',
@@ -9,8 +9,9 @@ import { Post } from 'src/app//models/post.model';
 export class PostComponent implements OnInit {
 
   @Input() postObject: Post;
-  @Output() deleted = new EventEmitter<Post>()
-  @Output() undo = new EventEmitter<Post>()
+  @Output() deleted = new EventEmitter<Object>();
+  @Output() undo = new EventEmitter<any>();
+  @Output() update = new EventEmitter<any>();
   post: Post;
   public editingPost = false;
 
@@ -27,5 +28,9 @@ export class PostComponent implements OnInit {
 
   deletePost() {
     this.deleted.emit(this.post);
+  }
+
+  sendUpdate(post) {
+    this.update.emit(post);
   }
 }

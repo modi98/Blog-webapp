@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Post } from '../models/post.model';
 import { ApiService } from '../services/api.service';
+import { Post } from '../interfaces/post';
 
 @Component({
   selector: 'app-post-details',
@@ -14,24 +14,44 @@ export class PostDetailsComponent implements OnInit {
 
   public post: Post;
   public newComment = '';
-  private _id: number;
-  private _sub: any;
+  public isLoading = true;
 
   ngOnInit(): void {
     var vm = this;
-    this._sub = this._route.params.subscribe(params => {
-      this._id = +params['id'];
-      this.post = this._api.getPost(this._id);
+    this._route.params.subscribe(params => {
+      this.getPost(params['id']);
     });
   }
 
+  getPost(id: string) {
+    let sub = this._api.getPost(id).subscribe({
+      next: data => {
+        this.post = data;
+        this.isLoading = false;
+        sub.unsubscribe();
+      },
+      error: error => {
+        console.error('There was an error!', error);
+        sub.unsubscribe();
+      }
+    })
+  }
+
   addComment() {
-    let c = {
+    let id = this.post.id;
+    this.post.comments.push({
       author: 'John Doe',
       comment: this.newComment
-    };
-    this.post.comments = [...this.post.comments, c];
-    this._api.updatePost(this.post);
-    this.newComment = '';
+    })
+    let sub = this._api.updatePost(this.post, id).subscribe({
+      next: data => {
+        this.newComment = '';
+        sub.unsubscribe();
+      },
+      error: error => {
+        console.error('There was an error!', error);
+        sub.unsubscribe();
+      }
+    });
   }
 }

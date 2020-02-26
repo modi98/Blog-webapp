@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Post } from 'src/app/models/post.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +8,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class FormAddPostComponent implements OnInit {
 
-  @Output() newPostCreated = new EventEmitter<Post>();
+  @Output() newPostCreated = new EventEmitter<Object>();
   postForm = new FormGroup({
     title: new FormControl(),
     description: new FormControl(),
@@ -49,16 +48,16 @@ export class FormAddPostComponent implements OnInit {
   }
 
   savePost() {
-    let newId = Math.floor(Math.random() * 6000) + 1;
-    this.newPostCreated.emit(new Post(
-      newId,
-      this.postForm.get('title').value,
-      this.postForm.get('category').value,
-      '',
-      this.postForm.get('description').value,
-      '',
-      this.postForm.get('imgUrl').value,
-      []));
+    this.newPostCreated.emit({
+      'title': this.postForm.get('title').value,
+      'category': this.postForm.get('category').value,
+      'shortDescription': 'Lol',
+      'description': this.postForm.get('description').value,
+      'image': this.postForm.get('imgUrl').value,
+      'comments': [],
+      'createdAt': '',
+      'updatedAt': ''
+    })
     let modal = document.getElementById('myModal');
     modal.style.display = 'none';
   }

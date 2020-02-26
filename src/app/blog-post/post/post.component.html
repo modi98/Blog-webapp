@@ -16,4 +16,4 @@
   </span>
 </div>
 
-<app-form-edit-post *ngIf="editingPost" (close)="toggleEditPost()" [postObject]="post"></app-form-edit-post>
+<app-form-edit-post *ngIf="editingPost" (close)="toggleEditPost()" (update)="sendUpdate($event)" [postObject]="post"></app-form-edit-post>
