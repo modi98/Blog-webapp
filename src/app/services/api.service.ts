@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Post } from '../models/post.model'
-import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

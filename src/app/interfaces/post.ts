@@ -1,5 +1,6 @@
 export interface Post {
   id: string,
+  category: string,
   title: string,
   shortDescription: string,
   description: string,

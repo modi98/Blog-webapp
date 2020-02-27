@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Post } from '../models/post.model';
+import { Post } from '../interfaces/post';
 
 @Pipe({
   name: 'category'
